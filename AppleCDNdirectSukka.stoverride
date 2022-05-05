@@ -1,0 +1,15 @@
+
+name: SukkaAppleCDN
+desc: AppleCDN直连
+
+rule-providers:
+
+  AppleCDN:
+    type: http
+    behavior: domain-text
+    url: "https://cdn.jsdelivr.net/gh/SukkaW/Surge@master/List/domainset/apple_cdn.conf"
+    path: ./ruleset/AppleCDN.yaml
+    interval: 86400
+    
+rules:
+  - RULE-SET,AppleCDN,DIRECT
