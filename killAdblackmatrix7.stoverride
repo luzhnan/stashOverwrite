@@ -9,13 +9,21 @@ rule-providers:
     path: ./ruleset/direct.yaml
     interval: 86400
 
-  Adblock-Domain:
+  rejectConf:
     type: http
-    behavior: domain
+    behavior: domain-text
     url: "https://cdn.jsdelivr.net/gh/SukkaW/Surge@master/List/domainset/reject.conf"
-    path: ./ruleset/AdDomain.yaml
+    path: ./ruleset/rejectConf.yaml
+    interval: 86400
+  
+  rejectSukkaConf:
+    type: http
+    behavior: domain-text
+    url: "https://cdn.jsdelivr.net/gh/SukkaW/Surge@master/List/domainset/reject_sukka.conf"
+    path: ./ruleset/rejectSukkaConf.yaml
     interval: 86400
     
 rules:
   - RULE-SET,Direct,DIRECT
-  - RULE-SET,Adblock-Domain,REJECT
+  - RULE-SET,rejectConf,REJECT
+  - RULE-SET,rejectSukkaConf,REJECT
